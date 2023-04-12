@@ -60,6 +60,9 @@ export const translate = async (
       const translatedContent = await askGPT(chunk, prompt)
       translated += translatedContent + splitter
       chunk = ''
+      setTimeout(function() {
+        info('')
+      }, 10000);
     }
     chunk += contentChunks[i] + (i < contentChunks.length - 1 ? splitter : '')
   }
