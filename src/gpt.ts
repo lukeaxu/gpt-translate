@@ -45,7 +45,8 @@ export const translate = async (
   splitter = `\n\n`,
 ): Promise<string> => {
   // TODO: Improve prompt (trusting user input currently)
-  const prompt = `Please translate the given text into ${targetLanguage} and output it in markdown format.`
+  // const prompt = `Please translate the given text into ${targetLanguage} and output it in markdown format.`
+  const prompt = `Please translate the given text into ${targetLanguage} and output it in markdown format. Keep the meaning same, and you can make them more literary.`
 
   let translated = ''
   let chunk = ''
