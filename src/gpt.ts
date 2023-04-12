@@ -53,6 +53,7 @@ export const translate = async (
   info('Start translating...')
   const contentChunks = text.split(splitter)
   for (let i = 0; i < contentChunks.length; i++) {
+    info(`Translated ${i + 1} of ${contentChunks.length}`)
     if (encode(chunk + contentChunks[i]).length > maxToken) {
       const translatedContent = await askGPT(chunk, prompt)
       translated += translatedContent + splitter
