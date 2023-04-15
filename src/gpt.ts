@@ -41,7 +41,7 @@ export const askGPT = async (text: string, prompt: string): Promise<string> => {
 export const translate = async (
   text: string,
   targetLanguage: string,
-  maxToken = 2000,
+  maxToken = 400,
   splitter = `\n\n`,
 ): Promise<string> => {
   // TODO: Improve prompt (trusting user input currently)
@@ -60,9 +60,11 @@ export const translate = async (
       const translatedContent = await askGPT(chunk, prompt)
       translated += translatedContent + splitter
       chunk = ''
-      setTimeout(function() {
-        info('')
-      }, 10000);
+      // await setTimeout(5000);
+      await new Promise(resolve => setTimeout(resolve, 10000)); // 等待10秒钟
+      // setTimeout(function() {
+      //   info('')
+      // }, 10000);
     }
     chunk += contentChunks[i] + (i < contentChunks.length - 1 ? splitter : '')
   }
