@@ -18180,7 +18180,7 @@ exports.askGPT = askGPT;
 const translate = async (text, targetLanguage, maxToken = 400, splitter = `\n\n`) => {
     // TODO: Improve prompt (trusting user input currently)
     // const prompt = `Please translate the given text into ${targetLanguage} and output it in markdown format.`
-    const prompt = `Please translate the given text into ${targetLanguage} and output it in markdown format. Keep the meaning same, and you can make them more literary.`;
+    const prompt = `Please translate the given markdown text into ${targetLanguage}, don't translate code and keep the markdown format. Keep the meaning same, and you can make them more literary.`;
     let translated = '';
     let chunk = '';
     (0, core_1.info)('Start translating...');
